@@ -6,14 +6,14 @@ import (
 )
 
 type Country struct {
-	code, name string
+	Code, Name string
 }
 
 type Countries []Country
 
 func (countries Countries) contains(country Country) bool {
 	for _, c := range countries {
-		if c.name == country.name && c.code == country.code {
+		if c.Name == country.Name && c.Code == country.Code {
 			return true
 		}
 	}
@@ -28,7 +28,7 @@ func Detect(text, lang string) Countries {
 	var results Countries
 	for _, w := range words {
 		for _, c := range countries {
-			if w == strings.ToLower(c.name) {
+			if w == strings.ToLower(c.Name) {
 				if !results.contains(c) {
 					results = append(results, c)
 				}
